@@ -33,9 +33,10 @@ def train(env_id, obs_one_hot, target_flick_prob, agent_trans_noise, target_rand
     os.makedirs("./performance/"+save_dir+"/check_point", exist_ok=True)
     os.makedirs("./policy_nns/"+save_dir, exist_ok=True)
 
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
+    if seed:
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
 
     # create env 
     if env_id.startswith('OSD') or env_id.startswith('BP'):
@@ -62,16 +63,28 @@ def train(env_id, obs_one_hot, target_flick_prob, agent_trans_noise, target_rand
             env_params['human_speed_per_step'] = [h0_speed_ps]
         env = gym.make(env_id, **env_params)
     else:
-        taskList = ["tomato salad", "lettuce salad", "onion salad", "lettuce-tomato salad", "onion-tomato salad", "lettuce-onion salad", "lettuce-onion-tomato salad"]
-        receipt = taskList[task]
-        rewardList = {"subtask finished": 10, "correct delivery": 200, "wrong delivery": -5, "step penalty": step_penalty}
-        debug = False
-        env_params = {'grid_dim': grid_dim,
-                        'mapType': map_type, 
-                        'task': receipt,
-                        'rewardList': rewardList,
-                        'debug': debug
-                    }
+        TASKLIST = [
+                "tomato salad", 
+                "lettuce salad", 
+                "onion salad", 
+                "lettuce-tomato salad", 
+                "onion-tomato salad", 
+                "lettuce-onion salad", 
+                "lettuce-onion-tomato salad"
+                ]
+        rewardList = {
+                "subtask finished": 10, 
+                "correct delivery": 200, 
+                "wrong delivery": -5, 
+                "step penalty": step_penalty
+                }
+        env_params = {
+                'grid_dim': grid_dim,
+                'map_type': map_type, 
+                'task': TASKLIST[task],
+                'rewardList': rewardList,
+                'debug': False
+                }
         env = gym.make(env_id, **env_params)
         if env_id.find("MA") != -1:
             env = MacEnvWrapper(env)

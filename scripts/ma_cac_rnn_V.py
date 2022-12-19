@@ -14,7 +14,7 @@ from macro_marl.MA_cac_rnn_V.learner import Learner
 from macro_marl.MA_cac_rnn_V.utils import Linear_Decay, save_train_data, save_test_data, save_checkpoint, load_checkpoint, save_policy
 
 from macro_marl import my_env
-from macro_marl.my_env.overcooked.macActEnvWrapper import MacEnvWrapper
+from gym_macro_overcooked.macActEnvWrapper import MacEnvWrapper
 
 import torch.multiprocessing
 torch.multiprocessing.set_sharing_strategy('file_system')
@@ -34,9 +34,10 @@ def train(env_id, env_terminate_step, n_env, n_agent, seed, run_id, save_dir, sa
           *args, **kwargs):
 
     # set seed
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
+    if seed:
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
 
     # create the dirs to save results
     os.makedirs("./performance/" + save_dir + "/train", exist_ok=True)
@@ -88,16 +89,28 @@ def train(env_id, env_terminate_step, n_env, n_agent, seed, run_id, save_dir, sa
             env_params['human_speed_per_step'] = [h0_speed_ps]
         env = gym.make(env_id, **env_params)
     else:
-        taskList = ["tomato salad", "lettuce salad", "onion salad", "lettuce-tomato salad", "onion-tomato salad", "lettuce-onion salad", "lettuce-onion-tomato salad"]
-        receipt = taskList[task]
-        rewardList = {"subtask finished": 10, "correct delivery": 200, "wrong delivery": -5, "step penalty": step_penalty}
-        debug = False
-        env_params = {'grid_dim': grid_dim,
-                        'mapType': map_type, 
-                        'task': receipt,
-                        'rewardList': rewardList,
-                        'debug': debug
-                    }
+        TASKLIST = [
+                "tomato salad", 
+                "lettuce salad", 
+                "onion salad", 
+                "lettuce-tomato salad", 
+                "onion-tomato salad", 
+                "lettuce-onion salad", 
+                "lettuce-onion-tomato salad"
+                ]
+        rewardList = {
+                "subtask finished": 10, 
+                "correct delivery": 200, 
+                "wrong delivery": -5, 
+                "step penalty": step_penalty
+                }
+        env_params = {
+                'grid_dim': grid_dim,
+                'map_type': map_type, 
+                'task': TASKLIST[task],
+                'rewardList': rewardList,
+                'debug': False
+                }
         env = gym.make(env_id, **env_params)
         if env_id.find("MA") != -1:
             env = MacEnvWrapper(env)
