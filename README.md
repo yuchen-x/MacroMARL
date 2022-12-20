@@ -32,7 +32,7 @@ pip install -e .
 - `./scripts/ma_hddrqn.py` the main files for all algorithms
 - `./experiments/` commands to run experiments
 - `./visualization/` code for visualizing learned behaviors under each domain 
-- `./src/macro_marl/{method_name}/ the source files for a specific algorithm
+- `./src/macro_marl/{alg_name}/` the source files for a specific algorithm
 - `./src/macro_marl/my_env` code for Box Pushing and Warehouse Tool Delivery domains
 
 ## Citations
