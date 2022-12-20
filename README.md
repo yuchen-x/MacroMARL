@@ -13,12 +13,44 @@ MacroMARL is written in PyTorch with the following macro-action-based multi-agen
   - Warehouse Took Delivery
 
 ## Installation
+Install dependencies:
 ```
-cd anaconda_env
+cd MacroMarl/anaconda_env
 conda env create -f environment.yml
-cd ..
-conda activate macro_marl
 ```
+Install macro_marl package:
 ```
+cd MacroMarl/
 pip install -e .
+```
+
+## Run Experiments
+
+## Behavior Visualization Examples
+
+## Citations
+If you are using MacroMARL in your research, please cite the corresponding papers listed below:
+```
+@InProceedings{xiao_corl_2019,
+  author = "Xiao, Yuchen and Hoffman, Joshua and Amato, Christopher",
+  title = "Macro-Action-Based Deep Multi-Agent Reinforcement Learning",
+  booktitle = "3rd Annual Conference on Robot Learning",
+  year = "2019"
+}
+```
+```
+@InProceedings{xiao_icra_2020,
+  author = "Xiao, Yuchen and Hoffman, Joshua and Xia, Tian and Amato, Christopher",
+  title = "Learning Multi-Robot Decentralized Macro-Action-Based Policies via a Centralized Q-Net",
+  booktitle = "Proceedings of the International Conference on Robotics and Automation",
+  year = "2020"
+}
+```
+```
+@InProceedings{xiao_neurips_2022,
+  author = "Xiao, Yuchen and Wei, Tan and Amato, Christopher",
+  title = "Asynchronous Actor-Critic for Multi-Agent Reinforcement Learning",
+  booktitle = "Proceedings of the Thirty-Sixth Conference on Neural Information Processing Systems (NeurIPS)",
+  year = "2022"
+}
 ```
