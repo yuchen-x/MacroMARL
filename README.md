@@ -24,7 +24,8 @@ cd MacroMarl/
 pip install -e .
 ```
 
-## Run Experiments
+## Commands for Experiments
+All the commands for experiments can be found in the bash files under `experiments/`
 
 ## Behavior Visualization Examples
 
