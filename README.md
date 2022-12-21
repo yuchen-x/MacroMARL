@@ -27,8 +27,6 @@ pip install -e .
 ## Commands for Experiments
 All the commands for experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel. Do not directly run the bash file if there is not enough computing resource.
 
-## Behavior Visualization Examples
-
 ## Code Structure
 - `./scripts/ma_hddrqn.py` the main files for all algorithms
 - `./experiments/` commands to run experiments
