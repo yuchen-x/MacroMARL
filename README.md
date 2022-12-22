@@ -24,10 +24,37 @@ cd MacroMarl/
 pip install -e .
 ```
 
-## Commands for Experiments
-All the commands for experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel. Do not directly run the bash file if there is not enough computing resource.
+## Run Experiments
+All the commands for running experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel.
 
-## Behavior Visualization Examples
+## Behavior Visualization
+In the `visualization/` directory, we provide examples for behavior visualization by running learned policies.
+### Box Pushing
+```
+python test_bp_ma.py --grid_dim 14 14 --scenario='14x14'
+```
+### Overcooked
+- Map-A
+```
+python test_overcooked_ma.py --env_id  Overcooked-MA-v1 --mapType A --n_agent 3 --task 6
+```
+- Map-B
+```
+python test_overcooked_ma.py --env_id  Overcooked-MA-v1 --mapType B --n_agent 3 --task 6
+```
+### Warehouse Tool Delivery
+- Warehouse-C
+```
+python test_osd_s_policy_dec.py --env_id='OSD-T-v0' --scenario=40 --n_agent=3
+```
+- Warehouse-D
+```
+python test_osd_s_policy_dec.py --env_id='OSD-T-v1' --scenario=4R383827 --n_agent=4
+```
+- Warehouse-E
+```
+python test_osd_s_policy_dec.py --env_id='OSD-F-v0' --scenario=v040 --n_agent=4
+```
 
 ## Code Structure
 - `./scripts/ma_hddrqn.py` the main files for all algorithms
