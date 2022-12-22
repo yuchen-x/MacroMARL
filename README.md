@@ -24,8 +24,8 @@ cd MacroMarl/
 pip install -e .
 ```
 
-## Commands for Experiments
-All the commands for experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel.
+## Run Experiments
+All the commands for running experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel.
 
 ## Code Structure
 - `./scripts/ma_hddrqn.py` the main files for all algorithms
