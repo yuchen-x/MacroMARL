@@ -14,8 +14,8 @@ MacroMARL is written in PyTorch with the following macro-action-based multi-agen
 | <img src="https://github.com/yuchen-x/gifs/blob/master/BP14x14.png" width=150></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/3_agent_D.png" width=150></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/3_agent_F.png" width=150></img> |
 | Warehouse Tool Delivery A | Warehouse Tool Delivery B | Warehouse Tool Delivery C |
 | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_a_small.png" width=230></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_b_small.png" width=230></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_c_small.png" width=300></img> 
-| Warehouse Tool Delivery D | Warehouse Tool Delivery E |
-| <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_e_small.png" width=300></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_d_small.png" width=300></img> | 
+| Warehouse Tool Delivery D || Warehouse Tool Delivery E |
+| <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_e_small.png" width=300></img> || <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_d_small.png" width=300></img> | 
 
 ## Installation
 Install dependencies:
