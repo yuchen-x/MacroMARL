@@ -7,16 +7,11 @@ MacroMARL is a framework for deep multi-agent reinforcement learning that allows
 - Policy-Gradient-Based Approaches:
   - [**Mac-IAC**, **Mac-CAC**, **Naive-Mac-IACC**, **Mac-IAICC**: Asynchronous Actor-Critic for Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2209.10113)
   
-MacroMARL is written in PyTorch with the following macro-action-based multi-agent enviroment:
-
-| Box Pushing | [Overcooked](https://github.com/WeihaoTan/gym-macro-overcooked)-MapA | [Overcooked](https://github.com/WeihaoTan/gym-macro-overcooked)-MapB |
-|:---:|:---:|:---:|
-| <img src="https://github.com/yuchen-x/gifs/blob/master/BP14x14.png" width=150></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/3_agent_D.png" width=150></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/3_agent_F.png" width=150></img> |
-| Warehouse Tool Delivery A | Warehouse Tool Delivery B | Warehouse Tool Delivery C |
-| <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_a_small.png" width=210></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_b_small.png" width=230></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_c_small.png" width=300></img> 
-| Warehouse Tool Delivery D || Warehouse Tool Delivery E |
-| <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_e_small.png" width=300></img> || <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_d_small.png" width=300></img> | 
-
+ <p align="left">
+  <img src="https://github.com/yuchen-x/gifs/blob/master/osd.GIF" width="40%" hspace="90">
+  <img src="https://github.com/yuchen-x/gifs/blob/master/two_h_same.GIF" width="40%" hspace="90">
+</p>
+  
 ## Installation
 Install dependencies:
 ```
@@ -27,7 +22,17 @@ Install macro_marl package:
 ```
 cd MacroMarl/
 pip install -e .
-```
+```  
+
+## Macro-Action-Based Multi-Agent Enviroments:
+
+| Box Pushing | [Overcooked](https://github.com/WeihaoTan/gym-macro-overcooked)-MapA | [Overcooked](https://github.com/WeihaoTan/gym-macro-overcooked)-MapB |
+|:---:|:---:|:---:|
+| <img src="https://github.com/yuchen-x/gifs/blob/master/BP14x14.png" width=150></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/3_agent_D.png" width=150></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/3_agent_F.png" width=150></img> |
+| Warehouse Tool Delivery A | Warehouse Tool Delivery B | Warehouse Tool Delivery C |
+| <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_a_small.png" width=210></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_b_small.png" width=230></img> | <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_c_small.png" width=300></img> 
+| Warehouse Tool Delivery D || Warehouse Tool Delivery E |
+| <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_e_small.png" width=300></img> || <img src="https://github.com/yuchen-x/gifs/blob/master/wtd_d_small.png" width=300></img> | 
 
 ## Run Experiments
 All the commands for running experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel.
