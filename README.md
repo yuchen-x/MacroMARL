@@ -37,6 +37,15 @@ pip install -e .
 ## Run Experiments
 All the commands for running experiments can be found in the bash files under `experiments/`. Note that each bash file can launch all experiments in parallel.
 
+- Example for running **MacDec-Q** under **Warehouse-A**
+```
+value_based_main.py  --save_dir='ma_hddrqn_warehouse_A' --alg='MacDecQ' --env_id='OSD-D-v7' --n_agent=3 --env_terminate_step=200 --batch_size=64 --train_freq=128 --total_epi=40_000 --replay_buffer_size=2000 --l_rate=0.0001 --h_stable_at=10_000 --eps_l_d_steps=10_000 --eps_end=0.05 --discount=1.0 --start_train=2000 --dynamic_h --eps_l_d --sample_epi --h0_speed_ps 27 20 20 20 --h1_speed_ps 27 20 20 20 --d_pen=-20.0 --tb_m_speed=0.8 --run_id=$i
+```
+- Example for running **Mac-IAICC** under **Warehouse-A**
+```
+pg_based_main.py --save_dir='ma_iaicc_warehouse_A'--alg='MacIAICC' --run_id=$i --env_id='OSD-D-v7' --n_agent=3 --l_mode=0 --env_terminate_step=200 --a_lr=0.0005 --c_lr=0.0005 --train_freq=4 --n_env=4 --c_target_update_freq=32 --n_step_TD=5 --grad_clip_norm=0 --eps_start=1.0 --eps_end=0.05 --eps_stable_at=10_000 --total_epi=40_000 --gamma=1.0 --a_rnn_layer_size=32 --c_rnn_layer_size=64 --h0_speed_ps 27 20 20 20 --h1_speed_ps 27 20 20 20 --d_pen=-20.0 --tb_m_speed=0.8 --sample_epi --eval_policy
+```
+
 ## Behavior Visualization
 In the `visualization/` directory, we provide examples for behavior visualization by running learned policies.
 ### Box Pushing
