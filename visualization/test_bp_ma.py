@@ -10,7 +10,8 @@ import IPython
 
 from macro_marl.my_env.box_pushing_MA import BoxPushing_harder as BP_MA
 
-from macro_marl.MA_iaicc_rnn_V.utils import Agent
+from macro_marl.cores.pg_based.mac_iac.utils import Agent
+from macro_marl.cores.pg_based.mac_iac.models import Actor
 from IPython.core.debugger import set_trace
 
 ACTIONS = ["GT_SB0", "GT_SB1", "GT_BB0", "GT_BB1", "PUSH", "T_L", "T_R", "STAY"]
@@ -55,7 +56,8 @@ def test(env_id, env_terminate_step, grid_dim, n_agent, n_episode, scenario):
     for i in range(n_agent):
         agent = Agent()
         agent.idx = i
-        agent.policy_net = torch.load("./policy_nns/BP_MA/" + scenario + "/agent_" + str(i) + ".pt")
+        agent.policy_net = Actor(env.obs_size[i], env.n_action[i])
+        agent.policy_net.load_state_dict(torch.load("./policy_nns/BP_MA/" + scenario + "/agent_state_dict_" + str(i) + ".pt"))
         agent.policy_net.eval()
         agents.append(agent)
 

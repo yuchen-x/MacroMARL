@@ -12,7 +12,8 @@ from torch.distributions import Categorical
 import random
 
 from macro_marl import my_env
-from macro_marl.MA_iaicc_rnn_V.utils import Agent
+from macro_marl.cores.pg_based.mac_iac.utils import Agent
+from macro_marl.cores.pg_based.mac_iac.models import Actor
 from gym.wrappers import Monitor
 
 
@@ -105,12 +106,13 @@ def test(env_id, scenario, env_terminate_step, grid_dim, n_agent, n_episode, p_i
     for i in range(n_agent):
         agent = Agent()
         agent.idx = i
+        agent.policy_net = Actor(env.obs_size[i], env.n_action[i])
         if "OSD-D" in env_id:
-            agent.policy_net = torch.load("./policy_nns/OSD_D/" + scenario + "/agent_" + str(i) + ".pt")
+            agent.policy_net.load_state_dict(torch.load("./policy_nns/OSD_D/" + scenario + "/agent_state_dict" + str(i) + ".pt"))
         elif "OSD-T" in env_id:
-            agent.policy_net = torch.load("./policy_nns/OSD_T/" + scenario + "/agent_" + str(i) + ".pt")
+            agent.policy_net.load_state_dict(torch.load("./policy_nns/OSD_T/" + scenario + "/agent_state_dict" + str(i) + ".pt"))
         else:
-            agent.policy_net = torch.load("./policy_nns/OSD_F/" + scenario + "/agent_" + str(i) + ".pt")
+            agent.policy_net.load_state_dict(torch.load("./policy_nns/OSD_F/" + scenario + "/agent_state_dict" + str(i) + ".pt"))
         agent.policy_net.eval()
         agents.append(agent)
 

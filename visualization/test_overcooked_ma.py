@@ -8,8 +8,8 @@ import time
 import gym
 from torch.distributions import Categorical
 
-from macro_marl.MA_iaicc_rnn_V.utils import Agent
-
+from macro_marl.cores.pg_based.mac_iac.utils import Agent
+from macro_marl.cores.pg_based.mac_iac.models import Actor
 
 import argparse
 from gym_macro_overcooked.macActEnvWrapper import MacEnvWrapper
@@ -58,7 +58,8 @@ def test(env_id, grid_dim, mapType, task, n_agent, p_id):
     for i in range(n_agent):
         agent = Agent()
         agent.idx = i
-        agent.policy_net = torch.load("./policy_nns/Overcooked/map" + mapType + "/agent_" + str(i) + ".pt")
+        agent.policy_net = Actor(env.obs_size[i], env.n_action[i])
+        agent.policy_net.load_state_dict(torch.load("./policy_nns/Overcooked/map" + mapType + "/agent_state_dict_" + str(i) + ".pt"))
         agent.policy_net.eval()
         agents.append(agent)
 
