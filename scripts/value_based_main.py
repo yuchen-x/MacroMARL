@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--alg',                action='store',        type=str,             default='MacDecQ',     help='Name of the algorithm')
-    parser.add_argument('--env_id',             action='store',        type=str,             default='OSD-S-v4',    help='Domain name')
+    parser.add_argument('--env_id',             action='store',        type=str,             default='OSD-S-v4',    help='Gym environment id')
     parser.add_argument('--env_terminate_step', action='store',        type=int,             default=150,           help='Maximal steps for termination')
     parser.add_argument('--obs_one_hot',        action='store_true',                                                help='Whether represents observation as a one-hot vector')
     parser.add_argument('--target_flick_prob',  action='store',        type=float,           default=0.3,           help='Probability of not observing target in Capture Target domain')
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     parser.add_argument('--softmax_explore',    action='store_true',                                                help='Whether apply softmac for exploration')
     parser.add_argument('--h_explore',          action='store_true',                                                help='whether use history-based policy for exploration or not')
     parser.add_argument('--cen_explore',        action='store_true',                                                help='Whether use centralized explore or not')
-    parser.add_argument('--cen_explore_end',    action='store',        type=int,             default=1000*1000,      help='Number of episodes for centralied explore')
+    parser.add_argument('--cen_explore_end',    action='store',        type=int,             default=1000*1000,     help='Number of episodes for centralied explore')
     parser.add_argument('--explore_switch',     action='store_true',                                                help='Whether switch between centralized explore and decentralized explore')
     parser.add_argument('--db_step',            action='store_true',                                                help='Whether use step-based decaying manner or not')
 
@@ -166,7 +166,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--mlp_layer_size',     action='store',         type=int, nargs='+', default=[32,32],       help='MLP layer dimension of decentralized policy-net (before, after) the RNN layer')
     parser.add_argument('--dec_mlp_layer_size', action='store',         type=int, nargs='+', default=[32,32],       help='MacDecDDRQN:MLP layer dimension of decentralized policy-net')
-    parser.add_argument('--cen_mlp_layer_size', action='store',         type=int, nargs='+', default=[32,32],       help='MacDecDDRQN:MLP layer dimension of decentralized policy-net')
+    parser.add_argument('--cen_mlp_layer_size', action='store',         type=int, nargs='+', default=[32,32],       help='MacDecDDRQN:MLP layer dimension of centralized policy-net')
     parser.add_argument('--rnn_layer_num',      action='store',         type=int,            default=1,             help='Number of RNN layers')
     parser.add_argument('--rnn_h_size',         action='store',         type=int,            default=32,            help='RNN hidden layer dimension of decentralized policy-net')
     parser.add_argument('--dec_rnn_h_size',     action='store',         type=int,            default=32,            help='MacDecDDRQN:RNN hidden layer dimension of decentralized policy-net')
