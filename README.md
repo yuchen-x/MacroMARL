@@ -67,10 +67,11 @@ python test_osd_s_policy_dec.py --env_id='OSD-F-v0' --scenario=v040 --n_agent=4
 ```
 
 ## Code Structure
-- `./scripts/ma_hddrqn.py` the main files for all algorithms
-- `./experiments/` commands to run experiments
-- `./visualization/` code for visualizing learned behaviors under each domain 
-- `./src/macro_marl/{alg_name}/` the source files for a specific algorithm
+- `./scripts/` includes main files for value-based and pg-based algorithms
+- `./experiments/` includes commands to run experiments
+- `./visualization/` includes code for visualizing learned behaviors under each domain 
+- `./src/macro_marl/algs/` includes the main learning code for each algorithm
+- `./src/macro_marl/cores/` includes the core modules for each algorithm
 - `./src/macro_marl/my_env` code for Box Pushing and Warehouse Tool Delivery domains
 
 ## Citations
