@@ -2,7 +2,7 @@ import torch
 
 from torch.distributions import Categorical
 
-from macro_marl.MA_niacc_rnn_V.models import Actor, Critic
+from macro_marl.cores.pg_based.mac_niacc.models import Actor, Critic
 from .utils import Agent
 
 class MAC(object):

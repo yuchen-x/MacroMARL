@@ -2,7 +2,8 @@
 # Overcooked-A
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_overcooked_A' \
+     value_based_main.py  --save_dir='ma_hddrqn_overcooked_A' \
+                                --alg='MacDecQ' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
                                 --env_terminate_step=200 \
@@ -17,7 +18,6 @@ do
                                 --target_update_freq=5000 \
                                 --discount=0.99 \
                                 --start_train=1000 \
-                                --rnn \
                                 --init_h=1.0 \
                                 --end_h=1.0 \
                                 --grid_dim 7 7 \
@@ -28,14 +28,14 @@ do
                                 --h_explore \
                                 --dynamic_h \
                                 --eps_l_d \
-                                --run_time=240 \
                                 --run_id=$i & 
 done
 
-# Overcooked-B
+Overcooked-B
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_overcooked_B' \
+     value_based_main.py  --save_dir='ma_hddrqn_overcooked_B' \
+                                --alg='MacDecQ' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
                                 --env_terminate_step=200 \
@@ -50,7 +50,6 @@ do
                                 --target_update_freq=5000 \
                                 --discount=0.99 \
                                 --start_train=3000 \
-                                --rnn \
                                 --init_h=1.0 \
                                 --end_h=1.0 \
                                 --grid_dim 7 7 \
@@ -61,6 +60,5 @@ do
                                 --h_explore \
                                 --dynamic_h \
                                 --eps_l_d \
-                                --run_time=240 \
                                 --run_id=$i & 
 done

@@ -2,7 +2,8 @@
 
 for ((i=0; i<20; i++))
 do
-     ma_cen_condi_ddrqn.py  --save_dir='ma_cen_condi_ddrqn_bp8' \
+     value_based_main.py  --save_dir='ma_cen_condi_ddrqn_bp8' \
+                                --alg='MacCenQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 8 8 \
                                 --n_agent=2 \
@@ -19,15 +20,17 @@ do
                                 --discount=0.98 \
                                 --start_train=500 \
                                 --rnn_h_size=64 \
-                                --rnn \
+                                --init_h=1.0 \
+                                --end_h=1.0 \
                                 --dynamic_h \
                                 --eps_l_d \
-                                --run_id=$i & 
+                                --run_id=$i &
 done
 
 for ((i=0; i<20; i++))
 do
-     ma_cen_condi_ddrqn.py  --save_dir='ma_cen_condi_ddrqn_bp10' \
+     value_based_main.py  --save_dir='ma_cen_condi_ddrqn_bp10' \
+                                --alg='MacCenQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 10 10 \
                                 --n_agent=2 \
@@ -44,7 +47,8 @@ do
                                 --discount=0.98 \
                                 --start_train=500 \
                                 --rnn_h_size=64 \
-                                --rnn \
+                                --init_h=1.0 \
+                                --end_h=1.0 \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -52,7 +56,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_cen_condi_ddrqn.py  --save_dir='ma_cen_condi_ddrqn_bp12' \
+     value_based_main.py  --save_dir='ma_cen_condi_ddrqn_bp12' \
+                                --alg='MacCenQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 12 12 \
                                 --n_agent=2 \
@@ -69,7 +74,8 @@ do
                                 --discount=0.98 \
                                 --start_train=500 \
                                 --rnn_h_size=64 \
-                                --rnn \
+                                --init_h=1.0 \
+                                --end_h=1.0 \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -77,7 +83,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_cen_condi_ddrqn.py  --save_dir='ma_cen_condi_ddrqn_bp20' \
+     value_based_main.py  --save_dir='ma_cen_condi_ddrqn_bp20' \
+                                --alg='MacCenQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 20 20 \
                                 --n_agent=2 \
@@ -94,7 +101,8 @@ do
                                 --discount=0.98 \
                                 --start_train=500 \
                                 --rnn_h_size=64 \
-                                --rnn \
+                                --init_h=1.0 \
+                                --end_h=1.0 \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -102,7 +110,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_cen_condi_ddrqn.py  --save_dir='ma_cen_condi_ddrqn_bp30' \
+     value_based_main.py  --save_dir='ma_cen_condi_ddrqn_bp30' \
+                                --alg='MacCenQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 30 30 \
                                 --n_agent=2 \
@@ -119,7 +128,8 @@ do
                                 --discount=0.98 \
                                 --start_train=500 \
                                 --rnn_h_size=64 \
-                                --rnn \
+                                --init_h=1.0 \
+                                --end_h=1.0 \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 

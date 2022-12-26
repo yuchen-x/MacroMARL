@@ -2,7 +2,8 @@
 # Overcooked-A
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py  --save_dir='mac_iac_overcooked_A' \
+    pg_based_main.py  --save_dir='mac_iac_overcooked_A' \
+                                --alg='MacIAC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
                                 --env_terminate_step=200 \
@@ -30,7 +31,8 @@ done
 # Overcooked-B
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py  --save_dir='mac_iac_overcooked_B' \
+    pg_based_main.py  --save_dir='mac_iac_overcooked_B' \
+                                --alg='MacIAC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
                                 --env_terminate_step=200 \
@@ -58,7 +60,8 @@ done
 # Overcooked-C
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py  --save_dir='mac_iac_overcooked_C' \
+    pg_based_main.py  --save_dir='mac_iac_overcooked_C' \
+                                --alg='MacIAC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
                                 --env_terminate_step=200 \

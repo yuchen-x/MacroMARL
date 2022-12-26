@@ -1,14 +1,15 @@
 import torch 
 
 from torch.distributions import Categorical
-from .envs_runner import EnvsRunner
-from .models import Actor
+
+from macro_marl.cores.pg_based.mac_niasc.models import Actor, Critic
 from .utils import Agent
 
 class MAC(object):
     
     def __init__(self, env, obs_last_action=False, 
-                 a_mlp_layer_size=64, a_rnn_layer_size=64, 
+                 a_mlp_layer_size=[32], a_rnn_layer_size=32, 
+                 c_mlp_layer_size=[32], c_mid_layer_size=32,
                  device='cpu'):
 
         self.env = env
@@ -17,10 +18,13 @@ class MAC(object):
 
         self.a_mlp_layer_size = a_mlp_layer_size
         self.a_rnn_layer_size = a_rnn_layer_size
+        self.c_mlp_layer_size = c_mlp_layer_size
+        self.c_mid_layer_size = c_mid_layer_size
 
         self.device = device
 
         self._build_agent()
+        self._init_critic()
 
     def select_action(self, obses, h_states, valids, avail_actions, eps=0.0, test_mode=False, using_tgt_net=False):
         actions = [] # List[Int]
@@ -58,13 +62,22 @@ class MAC(object):
         for idx in range(self.n_agent):
             agent = Agent()
             agent.idx = idx
-            agent.actor_net = Actor(self._get_input_shape(idx), self.env.n_action[idx], self.a_mlp_layer_size, self.a_rnn_layer_size).to(self.device)
-            agent.actor_tgt_net = Actor(self._get_input_shape(idx), self.env.n_action[idx], self.a_mlp_layer_size, self.a_rnn_layer_size).to(self.device)
+            agent.actor_net = Actor(self._get_actor_input_shape(idx), self.env.n_action[idx], self.a_mlp_layer_size, self.a_rnn_layer_size).to(self.device)
+            agent.actor_tgt_net = Actor(self._get_actor_input_shape(idx), self.env.n_action[idx], self.a_mlp_layer_size, self.a_rnn_layer_size).to(self.device)
             agent.actor_tgt_net.load_state_dict(agent.actor_net.state_dict())
             self.agents.append(agent)
 
-    def _get_input_shape(self, agent_idx):
+    def _init_critic(self):
+        for agent in self.agents:
+            agent.critic_net = Critic(self._get_critic_input_shape(), 1, self.c_mlp_layer_size, self.c_mid_layer_size).to(self.device)
+            agent.critic_tgt_net = Critic(self._get_critic_input_shape(), 1, self.c_mlp_layer_size, self.c_mid_layer_size).to(self.device)
+            agent.critic_tgt_net.load_state_dict(agent.critic_net.state_dict())
+
+    def _get_actor_input_shape(self, agent_idx):
         if not self.obs_last_action:
             return self.env.obs_size[agent_idx]
         else:
             return self.env.obs_size[agent_idx] + self.env.n_action[agent_idx]
+
+    def _get_critic_input_shape(self):
+        return self.env.state_size

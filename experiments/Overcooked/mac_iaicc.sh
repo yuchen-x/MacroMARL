@@ -3,10 +3,11 @@
 # Overcooked-A
 for ((i=0; i<20; i++))
 do
-    ma_iaicc_rnn_V.py --save_dir='iaicc_overcooked_A' \
+    pg_based_main.py --save_dir='iaicc_overcooked_A' \
+                                --alg='MacIAICC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
-                                --l_mode=1 \
+                                --l_mode=0 \
                                 --env_terminate_step=200 \
                                 --a_lr=0.0003 \
                                 --c_lr=0.003 \
@@ -28,16 +29,17 @@ do
                                 --map_type=A \
                                 --step_penalty=-0.1 \
                                 --c_mlp_layer_size 128 64 \
-                                --c_rnn_layer_size=64 &
+                                --c_rnn_layer_size=64 & 
 done
 
 # Overcooked-B
 for ((i=0; i<20; i++))
 do
-    ma_iaicc_rnn_V.py --save_dir='iaicc_overcooked_B' \
+    pg_based_main.py --save_dir='iaicc_overcooked_B' \
+                                --alg='MacIAICC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
-                                --l_mode=1 \
+                                --l_mode=0 \
                                 --env_terminate_step=200 \
                                 --a_lr=0.0003 \
                                 --c_lr=0.003 \
@@ -65,10 +67,11 @@ done
 # Overcooked-C
 for ((i=0; i<20; i++))
 do
-    ma_iaicc_rnn_V.py --save_dir='iaicc_overcooked_C' \
+    pg_based_main.py --save_dir='iaicc_overcooked_C' \
+                                --alg='MacIAICC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
-                                --l_mode=1 \
+                                --l_mode=0 \
                                 --env_terminate_step=200 \
                                 --a_lr=0.0003 \
                                 --c_lr=0.003 \

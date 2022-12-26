@@ -2,7 +2,8 @@
 
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_bp8' \
+     value_based_main.py  --save_dir='ma_hddrqn_bp8' \
+                                --alg='MacDecQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 8 8 \
                                 --n_agent=2 \
@@ -18,7 +19,6 @@ do
                                 --eps_end=0.05 \
                                 --discount=0.98 \
                                 --start_train=500 \
-                                --rnn \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -26,7 +26,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_bp10' \
+     value_based_main.py  --save_dir='ma_hddrqn_bp10' \
+                                --alg='MacDecQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 10 10 \
                                 --n_agent=2 \
@@ -42,7 +43,6 @@ do
                                 --eps_end=0.05 \
                                 --discount=0.98 \
                                 --start_train=500 \
-                                --rnn \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -50,7 +50,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_bp12' \
+     value_based_main.py  --save_dir='ma_hddrqn_bp12' \
+                                --alg='MacDecQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 12 12 \
                                 --n_agent=2 \
@@ -66,7 +67,6 @@ do
                                 --eps_end=0.05 \
                                 --discount=0.98 \
                                 --start_train=500 \
-                                --rnn \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -74,7 +74,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_bp20' \
+     value_based_main.py  --save_dir='ma_hddrqn_bp20' \
+                                --alg='MacDecQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 20 20 \
                                 --n_agent=2 \
@@ -90,7 +91,6 @@ do
                                 --eps_end=0.05 \
                                 --discount=0.98 \
                                 --start_train=500 \
-                                --rnn \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 
@@ -98,7 +98,8 @@ done
 
 for ((i=0; i<20; i++))
 do
-     ma_hddrqn.py  --save_dir='ma_hddrqn_bp30' \
+     value_based_main.py  --save_dir='ma_hddrqn_bp30' \
+                                --alg='MacDecQ' \
                                 --env_id='BP-MA-v0' \
                                 --grid_dim 30 30 \
                                 --n_agent=2 \
@@ -114,7 +115,6 @@ do
                                 --eps_end=0.05 \
                                 --discount=0.98 \
                                 --start_train=500 \
-                                --rnn \
                                 --dynamic_h \
                                 --eps_l_d \
                                 --run_id=$i & 

@@ -17,14 +17,14 @@ def Linear(input_dim, output_dim, act_fn='leaky_relu', init_weight_uniform=True)
 
 class Actor(nn.Module):
 
-    def __init__(self, input_dim, output_dim, mlp_layer_size=32, rnn_layer_size=32):
+    def __init__(self, input_dim, output_dim, mlp_layer_size=[32,32], rnn_layer_size=32):
         super(Actor, self).__init__()
 
-        self.fc1 = Linear(input_dim, mlp_layer_size, act_fn='leaky_relu')
-        self.fc2 = Linear(mlp_layer_size, mlp_layer_size, act_fn='leaky_relu')
-        self.gru = nn.GRU(mlp_layer_size, hidden_size=rnn_layer_size, num_layers=1, batch_first=True)
-        self.fc3 = Linear(rnn_layer_size, mlp_layer_size, act_fn='leaky_relu')
-        self.fc4 = Linear(mlp_layer_size, output_dim, act_fn='linear')
+        self.fc1 = Linear(input_dim, mlp_layer_size[0], act_fn='leaky_relu')
+        self.fc2 = Linear(mlp_layer_size[0], mlp_layer_size[0], act_fn='leaky_relu')
+        self.gru = nn.GRU(mlp_layer_size[0], hidden_size=rnn_layer_size, num_layers=1, batch_first=True)
+        self.fc3 = Linear(rnn_layer_size, mlp_layer_size[1], act_fn='leaky_relu')
+        self.fc4 = Linear(mlp_layer_size[1], output_dim, act_fn='linear')
 
     def forward(self, x, h=None, eps=0.0, test_mode=False):
 
@@ -46,14 +46,14 @@ class Actor(nn.Module):
 
 class Critic(nn.Module):
 
-    def __init__(self, input_dim, output_dim=1, mlp_layer_size=32, mid_layer_size=32):
+    def __init__(self, input_dim, output_dim=1, mlp_layer_size=[32,32], mid_layer_size=32):
         super(Critic, self).__init__()
 
-        self.fc1 = Linear(input_dim, mlp_layer_size, act_fn='leaky_relu')
-        self.fc2 = Linear(mlp_layer_size, mlp_layer_size, act_fn='leaky_relu')
-        self.fc3 = Linear(mlp_layer_size, mid_layer_size, act_fn='leaky_relu')
-        self.fc4 = Linear(mid_layer_size, mlp_layer_size, act_fn='leaky_relu')
-        self.fc5 = Linear(mlp_layer_size, output_dim, act_fn='linear')
+        self.fc1 = Linear(input_dim, mlp_layer_size[0], act_fn='leaky_relu')
+        self.fc2 = Linear(mlp_layer_size[0], mlp_layer_size[0], act_fn='leaky_relu')
+        self.fc3 = Linear(mlp_layer_size[1], mid_layer_size, act_fn='leaky_relu')
+        self.fc4 = Linear(mid_layer_size, mlp_layer_size[1], act_fn='leaky_relu')
+        self.fc5 = Linear(mlp_layer_size[1], output_dim, act_fn='linear')
 
     def forward(self, x):
 

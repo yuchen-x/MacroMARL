@@ -3,7 +3,8 @@
 # Box Pushing 6x6
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py --save_dir='ma_iac_bp6' \
+    pg_based_main.py --save_dir='ma_iac_bp6' \
+                    --alg='MacIAC' \
                     --env_id='BP-MA-v0' \
                     --n_agent=2 \
                     --env_terminate_step=100 \
@@ -29,7 +30,8 @@ done
 # Box Pushing 8x8
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py --save_dir='ma_iac_bp8' \
+    pg_based_main.py --save_dir='ma_iac_bp8' \
+                    --alg='MacIAC' \
                     --env_id='BP-MA-v0' \
                     --n_agent=2 \
                     --env_terminate_step=100 \
@@ -55,7 +57,8 @@ done
 # Box Pushing 10x10
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py --save_dir='ma_iac_bp10' \
+    pg_based_main.py --save_dir='ma_iac_bp10' \
+                    --alg='MacIAC' \
                     --env_id='BP-MA-v0' \
                     --n_agent=2 \
                     --env_terminate_step=100 \
@@ -81,7 +84,8 @@ done
 # Box Pushing 12x12
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py --save_dir='ma_iac_bp12' \
+    pg_based_main.py --save_dir='ma_iac_bp12' \
+                    --alg='MacIAC' \
                     --env_id='BP-MA-v0' \
                     --n_agent=2 \
                     --env_terminate_step=100 \
@@ -107,7 +111,8 @@ done
 # Box Pushing 14x14
 for ((i=0; i<20; i++))
 do
-    ma_iac_rnn_V.py --save_dir='ma_iac_bp14' \
+    pg_based_main.py --save_dir='ma_iac_bp14' \
+                    --alg='MacIAC' \
                     --env_id='BP-MA-v0' \
                     --n_agent=2 \
                     --env_terminate_step=100 \

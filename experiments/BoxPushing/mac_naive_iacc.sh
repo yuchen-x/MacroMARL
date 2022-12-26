@@ -3,7 +3,8 @@
 # Box Pushing 6x6
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_sV.py --save_dir='ma_niacc_bp6' \
+    pg_based_main.py --save_dir='ma_niacc_bp6' \
+                        --alg='NaiveMacIASC' \
                         --l_mode=0 \
                         --env_id='BP-MA-v0' \
                         --n_agent=2 \
@@ -24,13 +25,14 @@ do
                         --gamma=0.98 \
                         --eval_policy \
                         --sample_epi \
-                        --run_id=$i &
+                        --run_id=$i & 
 done
 
 # Box Pushing 8x8
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_sV.py --save_dir='ma_niacc_bp8' \
+    pg_based_main.py --save_dir='ma_niacc_bp8' \
+                        --alg='NaiveMacIASC' \
                         --l_mode=0 \
                         --env_id='BP-MA-v0' \
                         --n_agent=2 \
@@ -57,7 +59,8 @@ done
 # Box Pushing 10x10
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_sV.py --save_dir='ma_niacc_bp10' \
+    pg_based_main.py --save_dir='ma_niacc_bp10' \
+                        --alg='NaiveMacIASC' \
                         --l_mode=0 \
                         --env_id='BP-MA-v0' \
                         --n_agent=2 \
@@ -84,7 +87,8 @@ done
 # Box Pushing 12x12
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_sV.py --save_dir='ma_niacc_bp12' \
+    pg_based_main.py --save_dir='ma_niacc_bp12' \
+                        --alg='NaiveMacIASC' \
                         --l_mode=0 \
                         --env_id='BP-MA-v0' \
                         --n_agent=2 \
@@ -111,7 +115,8 @@ done
 # Box Pushing 14x14
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_sV.py --save_dir='ma_niacc_bp14' \
+    pg_based_main.py --save_dir='ma_niacc_bp14' \
+                        --alg='NaiveMacIASC' \
                         --l_mode=0 \
                         --env_id='BP-MA-v0' \
                         --n_agent=2 \

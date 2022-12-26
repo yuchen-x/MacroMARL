@@ -3,7 +3,8 @@
 # Overcooked-A
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_V.py --save_dir='iaicc_overcooked_A' \
+    pg_based_main.py --save_dir='iaicc_overcooked_A' \
+                                --alg='NaiveMacIACC' \
                                 --env_id='Overcooked-MA-v1' \
                                 --n_agent=3 \
                                 --l_mode=0 \
@@ -31,10 +32,11 @@ do
                                 --c_rnn_layer_size=64 & 
 done
 
-Overcooked-B
+#Overcooked-B
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_V.py --save_dir='iaicc_overcooked_B' \
+    pg_based_main.py --save_dir='iaicc_overcooked_B' \
+                                --alg='NaiveMacIACC' \
                                 --env_id='Overcooked-mapBC-MA-v1' \
                                 --n_agent=3 \
                                 --l_mode=0 \
@@ -65,7 +67,8 @@ done
 # Overcooked-C
 for ((i=0; i<20; i++))
 do
-    ma_niacc_rnn_V.py --save_dir='iaicc_overcooked_C' \
+    pg_based_main.py --save_dir='iaicc_overcooked_C' \
+                                --alg='NaiveMacIACC' \
                                 --env_id='Overcooked-mapBC-MA-v1' \
                                 --n_agent=3 \
                                 --l_mode=0 \

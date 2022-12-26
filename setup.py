@@ -12,16 +12,8 @@ setup(
     # TODO setup dependencies correctly!
 
     scripts=[
-        'scripts/ma_iac_rnn_V.py',
-        'scripts/ma_cac_rnn_V.py',
-        'scripts/ma_niacc_rnn_V.py',
-        'scripts/ma_niacc_rnn_sV.py',
-        'scripts/ma_iaicc_rnn_V.py',
-        'scripts/ma_iaicc_rnn_sV.py',
-        'scripts/ma_hddrqn.py',
-        'scripts/ma_cen_condi_ddrqn.py',
-        'scripts/ma_dec_cen_hddrqn_sep.py',
-        'scripts/ma_dec_cen_hddrqn.py',
+        'scripts/value_based_main.py',
+        'scripts/pg_based_main.py',
     ],
 
     license='MIT',
